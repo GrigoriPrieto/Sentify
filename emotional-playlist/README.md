@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎵 Sentify: AI-Powered Mood Playlists
 
-## Getting Started
+**Sentify** es una aplicación web inteligente que transforma tus emociones en música. Utilizando el modelo de lenguaje **Llama 3.3 de Groq**, la app analiza cómo te sientes y genera automáticamente una playlist personalizada en tu cuenta de **Spotify**.
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Spotify API](https://img.shields.io/badge/Spotify-1DB954?style=for-the-badge&logo=spotify&logoColor=white)
+![Groq Cloud](https://img.shields.io/badge/Groq-f55036?style=for-the-badge&logo=ai&logoColor=white)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Características
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- 🧠 **Análisis de Sentimiento:** Procesamiento de lenguaje natural mediante Groq para identificar moods y subgéneros musicales.
+- 🔐 **Autenticación Segura:** Integración con NextAuth y Spotify OAuth para acceso seguro a la cuenta del usuario.
+- ⚡ **Generación en Tiempo Real:** Creación instantánea de playlists y adición de tracks optimizada.
+- 🛠️ **Arquitectura Robusta:** Implementación de Server Actions y manejo de errores críticos de API (Fix de endpoints deprecated).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Stack Tecnológico
 
-## Learn More
+- **Frontend/Backend:** [Next.js 14/15](https://nextjs.org/) (App Router)
+- **Lenguaje:** [TypeScript](https://www.typescriptlang.org/)
+- **IA:** [Groq SDK](https://groq.com/) (Llama 3.3 70b Versatile)
+- **Auth:** [NextAuth.js](https://next-auth.js.org/)
+- **Estilos:** Tailwind CSS
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🔧 Desafíos Técnicos y Soluciones
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### El "Spotify 403 Forbidden" Bug
+Durante el desarrollo, nos enfrentamos a un error persistente al intentar añadir canciones a las playlists creadas. Tras una investigación profunda, descubrimos que las aplicaciones nuevas en modo desarrollo de Spotify están forzando la migración del endpoint legacy `/tracks` hacia el nuevo endpoint `/items`.
 
-## Deploy on Vercel
+**Solución aplicada:**
+Se migró toda la lógica de edición de playlists al nuevo endpoint `/v1/playlists/{id}/items` y se implementó un sistema de "retry" con delay de sincronización de 1.5s para asegurar la propagación de permisos en los servidores de Spotify.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🚦 Configuración Local
+
+1. **Clonar el repositorio:**
+   ```bash
+   git clone [https://github.com/tu-usuario/sentify.git](https://github.com/tu-usuario/sentify.git)
+   cd sentify
+
+2. **Insalar dependencias**
+    ```bash
+    npm install
+
+3. **Variables de Entorno (`.env.local`):**
+   Crea un archivo con las siguientes claves:
+   ```env
+   GROQ_API_KEY=tu_api_key_de_groq
+   SPOTIFY_CLIENT_ID=tu_client_id
+   SPOTIFY_CLIENT_SECRET=tu_client_secret
+   NEXTAUTH_SECRET=una_palabra_aleatoria
+   NEXTAUTH_URL=http://localhost:3000
+
+4. **Ejecutar en desarrollo**
+    ```bash
+    npm run dev
+
+---
+
+## 📸 Demo
+
+
+
+---
+
+## 🤝 Contribuciones
+
+Las sugerencias y pull requests son bienvenidos. Para cambios importantes, por favor abre un issue primero para discutir lo que te gustaría cambiar.
+
+---
+
+Desarrollado con ❤️ por **Grigori** 
