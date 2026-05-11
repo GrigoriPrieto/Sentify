@@ -1,5 +1,7 @@
 # 🎵 Sentify: AI-Powered Mood Playlists
 
+> **Live Demo:** [https://sentify-blond.vercel.app](https://sentify-blond.vercel.app)
+
 **Sentify** es una aplicación web inteligente que transforma tus emociones en música. Utilizando el modelo de lenguaje **Llama 3.3 de Groq**, la app analiza cómo te sientes y genera automáticamente una playlist personalizada en tu cuenta de **Spotify**.
 
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
@@ -18,11 +20,11 @@
 
 ## 🛠️ Stack Tecnológico
 
-- **Frontend/Backend:** [Next.js 14/15](https://nextjs.org/) (App Router)
+- **Frontend/Backend:** [Next.js 15](https://nextjs.org/) (App Router)
 - **Lenguaje:** [TypeScript](https://www.typescriptlang.org/)
 - **IA:** [Groq SDK](https://groq.com/) (Llama 3.3 70b Versatile)
 - **Auth:** [NextAuth.js](https://next-auth.js.org/)
-- **Estilos:** Tailwind CSS
+- **Estilos:** Tailwind CSS 4
 
 ---
 
