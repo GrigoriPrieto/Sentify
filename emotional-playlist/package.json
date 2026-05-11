@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "groq-sdk": "^1.1.2",
-    "next": "15.1.7",
+    "next": "^15.5.18",
     "next-auth": "^4.24.14",
     "react": "19.0.0",
     "react-dom": "19.0.0"
